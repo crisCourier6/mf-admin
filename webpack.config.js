@@ -15,12 +15,12 @@ const Dotenv = require('dotenv-webpack');
             new ModuleFederationPlugin({
               name: "EyesFoodAdmin", // Aqui se define el nombre de la aplicación
               remotes: {
-                MFACC: "mf_accounts@http://localhost:4001/remoteEntry.js", // Nombre de la aplicación hijo + @http://ip-MF-Hijo:puerto-MF-Hijo/RemoteEntry.js
-                MFFOOD: "mf_food_profile@http://localhost:4003/remoteEntry.js",
-                MFUSER: "mf_user_profile@http://localhost:4004/remoteEntry.js",
-                MFEDIT: "mf_food_edits@http://localhost:4005/remoteEntry.js",
-                MFEXPERT: "mf_expert_profile@http://localhost:4007/remoteEntry.js",
-                MFNOTIF: "mf_notification@http://localhost:4009/remoteEntry.js",
+                MFACC: `mf_accounts@http://localhost:8081/mf-accounts/remoteEntry.js`, // Nombre de la aplicación hijo + @http://ip-MF-Hijo:puerto-MF-Hijo/RemoteEntry.js
+                MFFOOD: "mf_food_profile@http://localhost:8081/mf-food-profile/remoteEntry.js",
+                MFUSER: "mf_user_profile@http://localhost:8081/mf-user-profile/remoteEntry.js",
+                MFEDIT: "mf_food_edits@http://localhost:8081/mf-food-edits/remoteEntry.js",
+                MFEXPERT: "mf_expert_profile@http://localhost:8081/mf-expert-profile/remoteEntry.js",
+                MFNOTIF: "mf_notification@http://localhost:8081/mf-notification/remoteEntry.js",
               },
               shared: {
                 ...dependencies, // other dependencies
@@ -45,7 +45,7 @@ const Dotenv = require('dotenv-webpack');
           mode: "development",
           devServer: {
             port: process.env.REACT_APP_PORT, // Puerto donde se levanta la app
-            host: process.env.REACT_APP_BASE_URL,
+            host: "0.0.0.0",
             historyApiFallback: true, // Necesario para que funcione React Router
           },
           module: {

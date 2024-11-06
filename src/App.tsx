@@ -14,7 +14,7 @@ import NotificationManagerView from "./views/notification/NotificationManagerVie
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Router basename="/admin">
           <Routes>
               <Route path="/" element={<LoginView />}/>
               <Route path="login">
