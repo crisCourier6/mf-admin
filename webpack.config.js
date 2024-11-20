@@ -57,7 +57,7 @@ dotenv.config()
           mode: "development",
           devServer: {
             port: process.env.REACT_APP_PORT, // Puerto donde se levanta la app
-            host: process.env.REACT_APP_BASE_URL,
+            host: "0.0.0.0",
             historyApiFallback: true, // Necesario para que funcione React Router
           },
           module: {
