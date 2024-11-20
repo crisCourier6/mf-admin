@@ -7,7 +7,6 @@ import api from '../../api';
 import NotAllowed from '../../components/NotAllowed';
 
 export const NotificationManagerView = () => {
-  const {id} = window.localStorage.id
   const [isAppBarVisible, setIsAppBarVisible] = useState(true);
   const allowedRoles = ["Admin", "Tech"]
   const [allDone, setAllDone] = useState(false)
@@ -38,11 +37,11 @@ export const NotificationManagerView = () => {
   const handleAppBarVisibilityChange = (visible: boolean) => {
       setIsAppBarVisible(visible);
   };
-    return ( allDone? isAllowed?<><Grid container display="flex" direction="column" justifyContent="flex-start" alignItems="center" width="100vw">
+    return ( allDone? isAllowed?<Grid container display="flex" direction="column" justifyContent="flex-start" alignItems="center" width="100vw">
           <TopBar onVisibilityChange={handleAppBarVisibilityChange}></TopBar>
           <NotificationManager isAppBarVisible={isAppBarVisible} />
       
-      </Grid></>
+      </Grid>
       :<NotAllowed></NotAllowed>:<CircularProgress></CircularProgress>
     )
 }

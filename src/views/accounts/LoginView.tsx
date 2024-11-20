@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box, Tabs, Tab, Grid } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { Box, Grid } from '@mui/material';
 import Login from '../../microfrontends/accounts/Login';
 import EFLogo from '../../svgs/EFLogo';
 

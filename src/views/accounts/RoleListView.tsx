@@ -37,11 +37,11 @@ export const RoleListView = () => {
   const handleAppBarVisibilityChange = (visible: boolean) => {
       setIsAppBarVisible(visible);
   };
-    return ( allDone? isAllowed?<><Grid container display="flex" direction="column" justifyContent="flex-start" alignItems="center" width="100vw">
+    return ( allDone? isAllowed?<Grid container display="flex" direction="column" justifyContent="flex-start" alignItems="center" width="100vw">
           <TopBar onVisibilityChange={handleAppBarVisibilityChange}></TopBar>
           <RoleList isAppBarVisible={isAppBarVisible} />
       
-      </Grid></>
+      </Grid>
       :<NotAllowed></NotAllowed>:<CircularProgress></CircularProgress>
     )
 }

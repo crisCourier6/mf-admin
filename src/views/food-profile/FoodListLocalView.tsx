@@ -10,7 +10,7 @@ export const FoodListLocalView = () => {
   const handleAppBarVisibilityChange = (visible: boolean) => {
       setIsAppBarVisible(visible);
   };
-  return ( <>
+  return ( 
     <Grid container direction="column" justifyContent="flex-start" alignItems="center" width="100vw">
       <TopBar onVisibilityChange={handleAppBarVisibilityChange}></TopBar>
       <Typography variant='h5' width="100%" maxWidth="400px" sx={{py:1}}>
@@ -19,7 +19,7 @@ export const FoodListLocalView = () => {
       
       <FoodListLocal></FoodListLocal>
     </Grid>
-  </>
+  
   )
 }
 

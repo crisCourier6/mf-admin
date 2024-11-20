@@ -10,11 +10,11 @@ export const ArticleListView = () => {
   const handleAppBarVisibilityChange = (visible: boolean) => {
       setIsAppBarVisible(visible);
   };
-    return ( <><Grid container display="flex" direction="column" justifyContent="flex-start" alignItems="center" width="100vw">
+    return ( <Grid container display="flex" direction="column" justifyContent="flex-start" alignItems="center" width="100vw">
           <TopBar onVisibilityChange={handleAppBarVisibilityChange}></TopBar>
           <ArticleList isAppBarVisible={isAppBarVisible} />
       
-      </Grid></>
+      </Grid>
     )
 }
 

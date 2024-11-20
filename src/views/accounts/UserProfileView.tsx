@@ -1,6 +1,5 @@
 import { Grid} from '@mui/material';
 import React, { useState } from 'react';
-
 import TopBar from '../../components/TopBar';
 import UserAccount from '../../microfrontends/accounts/UserAccount';
 
@@ -10,7 +9,7 @@ export const UserProfileView = () => {
   const handleAppBarVisibilityChange = (visible: boolean) => {
       setIsAppBarVisible(visible);
   };
-  return ( <>
+  return (
     <Grid container direction="column" 
           justifyContent="flex-start" 
           alignItems="center">
@@ -18,7 +17,6 @@ export const UserProfileView = () => {
       <UserAccount isAppBarVisible={isAppBarVisible}/> 
       
     </Grid>
-  </>
   )
 }
 

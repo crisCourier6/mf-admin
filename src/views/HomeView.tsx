@@ -28,7 +28,7 @@ export const HomeView = () => {
       return "Buenas noches " + window.localStorage.name
     }
   }
-  return ( <>
+  return (
     <Grid container direction="column" justifyContent="flex-start" alignItems="center">
       <TopBar onVisibilityChange={handleAppBarVisibilityChange}></TopBar>
       <Typography variant='h5' width="90vw" maxWidth="400px" color={"secondary.dark"} sx={{pt:2}}>
@@ -37,7 +37,6 @@ export const HomeView = () => {
       <HomeOptions></HomeOptions>
 
     </Grid>
-  </>
   )
 }
 

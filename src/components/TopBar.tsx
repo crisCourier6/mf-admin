@@ -3,21 +3,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import Logo from "../../public/EFbeta.png"
 import { 
   Box, List, ListItem, ListItemButton, 
-  ListItemIcon, ListItemText, Drawer, AppBar, 
+  ListItemIcon, Drawer, AppBar, 
   Toolbar, IconButton, Typography, 
-  Paper, useScrollTrigger, Slide} from "@mui/material";
+  Paper, Slide} from "@mui/material";
 import { useState, useEffect } from "react";
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import NotificationsNoneRoundedIcon from '@mui/icons-material/NotificationsNoneRounded';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
-import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
-import CameraAltRoundedIcon from '@mui/icons-material/CameraAltRounded';
-import SearchIcon from "../svgs/SearchIcon";
-import ExpertIcon from "../svgs/ExpertIcon";
-import ScannerIcon from "../svgs/ScannerIcon";
-import StoreIcon from "../svgs/StoreIcon";
 import FoodListIcon from "../svgs/FoodListIcon";
 import { useTheme } from "@mui/material/styles";
 import RoleIcon from "../svgs/RoleIcon";
@@ -93,7 +87,6 @@ const HideOnScroll: React.FC<{ onVisibilityChange: (visible: boolean) =>
 
 
 const TopBar: React.FC<{ onVisibilityChange: (visible: boolean) => void }> = ({ onVisibilityChange }) => {
-    const theme = useTheme() 
     const navigate = useNavigate()
     const [openRight, setOpenRight] = React.useState(false);
     const [openLeft, setOpenLeft] = React.useState(false);

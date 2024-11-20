@@ -1,6 +1,6 @@
-import React, { lazy, Suspense } from "react";
+import React from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes, Navigate, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LoginView from "./views/accounts/LoginView";
 import HomeView from "./views/HomeView";
 import UserListView from "./views/accounts/UserListView";
