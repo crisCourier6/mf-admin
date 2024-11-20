@@ -3,24 +3,36 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const { dependencies } = require("./package.json");
 const { hostname } = require("os");
 const { Output } = require("@mui/icons-material");
-require('dotenv').config()
-const Dotenv = require('dotenv-webpack');
+const dotenv = require("dotenv")
+const webpack = require("webpack")
+dotenv.config()
         
         module.exports = {
           plugins: [
+            new webpack.DefinePlugin({
+              "process.env.REACT_APP_GATEWAY_URL": JSON.stringify(process.env.REACT_APP_GATEWAY_URL),
+            }),
             new HtmlWebpackPlugin({
               template: "./public/index.html",
             }),
-            new Dotenv(),
             new ModuleFederationPlugin({
               name: "EyesFoodAdmin", // Aqui se define el nombre de la aplicación
               remotes: {
-                MFACC: "mf_accounts@http://localhost:4001/remoteEntry.js", // Nombre de la aplicación hijo + @http://ip-MF-Hijo:puerto-MF-Hijo/RemoteEntry.js
-                MFFOOD: "mf_food_profile@http://localhost:4003/remoteEntry.js",
-                MFUSER: "mf_user_profile@http://localhost:4004/remoteEntry.js",
-                MFEDIT: "mf_food_edits@http://localhost:4005/remoteEntry.js",
-                MFEXPERT: "mf_expert_profile@http://localhost:4007/remoteEntry.js",
-                MFNOTIF: "mf_notification@http://localhost:4009/remoteEntry.js",
+                // NGINX
+                // MFACC: `mf_accounts@http://localhost:8081/mf-accounts/remoteEntry.js`, // Nombre de la aplicación hijo + @http://ip-MF-Hijo:puerto-MF-Hijo/RemoteEntry.js
+                // MFFOOD: "mf_food_profile@http://localhost:8081/mf-food-profile/remoteEntry.js",
+                // MFUSER: "mf_user_profile@http://localhost:8081/mf-user-profile/remoteEntry.js",
+                // MFEDIT: "mf_food_edits@http://localhost:8081/mf-food-edits/remoteEntry.js",
+                // MFEXPERT: "mf_expert_profile@http://localhost:8081/mf-expert-profile/remoteEntry.js",
+                // MFNOTIF: "mf_notification@http://localhost:8081/mf-notification/remoteEntry.js",
+
+                //LOCAL
+                MFACC: `mf_accounts@http://${process.env.MF_ACCOUNTS_URL}/remoteEntry.js`, // Nombre de la aplicación hijo + @http://ip-MF-Hijo:puerto-MF-Hijo/RemoteEntry.js
+                MFFOOD: `mf_food_profile@http://${process.env.MF_FOOD_PROFILE_URL}/remoteEntry.js`,
+                MFUSER: `mf_user_profile@http://${process.env.MF_USER_PROFILE_URL}/remoteEntry.js`,
+                MFEDIT: `mf_food_edits@http://${process.env.MF_FOOD_EDIT_URL}/remoteEntry.js`,
+                MFEXPERT: `mf_expert_profile@http://${process.env.MF_EXPERTS_URL}/remoteEntry.js`,
+                MFNOTIF: `mf_notification@http://${process.env.MF_NOTIFICATIONS_URL}/remoteEntry.js`,
               },
               shared: {
                 ...dependencies, // other dependencies

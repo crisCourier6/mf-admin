@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Box, Typography, Grid} from '@mui/material';
-import { Link, useNavigate } from 'react-router-dom';
-import SearchIcon from '../svgs/SearchIcon';
+import { useNavigate } from 'react-router-dom';
 import RoleIcon from '../svgs/RoleIcon';
 import FoodListIcon from '../svgs/FoodListIcon';
-import ArticlesIcon from '../svgs/ArticlesIcon';
 import NotificationManagerIcon from '../svgs/NotificationManagerIcon';
 import SubmissionsIcon from '../svgs/SubmissionsIcon';
 import UsersIcon from '../svgs/Users';
-import NotificationsNoneRoundedIcon from '@mui/icons-material/NotificationsNoneRounded';
-import { inherits } from 'util';
 
-export const HomeOptions = () => {
+export const HomeOptions:React.FC= () => {
   const navigate = useNavigate()
 
   const handleUsers = () => {
@@ -50,7 +46,7 @@ export const HomeOptions = () => {
       {name: "Lista local de alimentos", allowedRoles: ["Admin", "Tech", "Expert", "Store"], function: handleFoodLocal, icon: <FoodListIcon width='100%' height= 'auto'/>},
       {name: "Aportes de usuarios", allowedRoles: ["Admin", "Tech", "Expert"], function: handleFoodEdit, icon: <SubmissionsIcon width='100%' height= 'auto'/>},
       {name: "Gestión de roles y permisos", allowedRoles: ["Admin", "Tech"], function: handleRoleEdit, icon: <RoleIcon width='100%' height= 'auto'/>},
-      {name: "Artículos de salud", allowedRoles: ["Admin", "Tech", "Expert"], function: handleArticleEdit, icon: <ArticlesIcon width='100%' height= 'auto'/>}
+      // {name: "Artículos de salud", allowedRoles: ["Admin", "Tech", "Expert"], function: handleArticleEdit, icon: <ArticlesIcon width='100%' height= 'auto'/>}
     ]
     const userRole = window.localStorage.role
     const filteredOptions = options.filter(option => 
@@ -63,7 +59,7 @@ export const HomeOptions = () => {
                 flexDirection="row" 
                 justifyContent="space-around"
                 alignItems="stretch"
-                sx={{width: "100vw", maxWidth:"1000px", gap:"5px", py: 7,}}
+                sx={{width: "100vw", maxWidth:"800px", gap:"5px", py: 7,}}
             >
             {optionsApp.map((option) => (
               <Button key={option.name} variant='dashed' onClick={option.function} 
@@ -71,7 +67,7 @@ export const HomeOptions = () => {
                   flexDirection: "column", 
                   alignItems: "center", 
                   justifyContent: "stretch",
-                  width: "45%", 
+                  width: "25%", 
                   maxWidth: "200px",
                   fontWeight: "bold"
               }}

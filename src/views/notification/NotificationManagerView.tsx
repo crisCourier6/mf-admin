@@ -24,6 +24,7 @@ export const NotificationManagerView = () => {
     .then(res => {
       const userRoles = res.data;
       const hasAllowedRole = userRoles.some((role:any) => allowedRoles.includes(role));
+      console.log(userRoles, hasAllowedRole)
       setIsAllowed(hasAllowedRole);
     })
     .catch(error => {

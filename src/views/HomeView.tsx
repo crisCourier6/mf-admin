@@ -1,5 +1,5 @@
 import { Grid, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TopBar from '../components/TopBar';
 import { HomeOptions } from '../components/HomeOptions';
 
@@ -9,6 +9,10 @@ export const HomeView = () => {
   const handleAppBarVisibilityChange = (visible: boolean) => {
       setIsAppBarVisible(visible);
   };
+
+  useEffect(()=>{
+    document.title = "Inicio - EF Admin";
+  },[])
 
   const getGreetingMessage = () => {
     const now = new Date()

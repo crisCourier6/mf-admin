@@ -3,13 +3,11 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { createTheme, ThemeProvider } from '@mui/material';
-import { GoogleOAuthProvider } from "@react-oauth/google"
 import "@fontsource/montserrat/400.css"
 import '@fontsource/righteous/400.css';
 import { esES } from '@mui/x-data-grid/locales';
 import { esES as pickersEsES } from '@mui/x-date-pickers/locales';
 import { esES as coreEsES } from '@mui/material/locale';
-import DataGrid from '@mui/x-data-grid';
 
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
@@ -17,8 +15,6 @@ declare module '@mui/material/Button' {
     dark: true
   }
 }
-
-const googleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID as string
 
 const baseTheme = createTheme({
   typography: {
@@ -240,10 +236,7 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-
-    <GoogleOAuthProvider clientId={googleClientId}>
       <ThemeProvider theme={theme}>
         <App />
       </ThemeProvider>
-    </GoogleOAuthProvider>
 );
