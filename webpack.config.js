@@ -27,12 +27,13 @@ dotenv.config()
                 // MFNOTIF: "mf_notification@http://localhost:8081/mf-notification/remoteEntry.js",
 
                 //LOCAL
-                MFACC: `mf_accounts@http://${process.env.MF_ACCOUNTS_URL}/remoteEntry.js`, // Nombre de la aplicación hijo + @http://ip-MF-Hijo:puerto-MF-Hijo/RemoteEntry.js
-                MFFOOD: `mf_food_profile@http://${process.env.MF_FOOD_PROFILE_URL}/remoteEntry.js`,
-                MFUSER: `mf_user_profile@http://${process.env.MF_USER_PROFILE_URL}/remoteEntry.js`,
-                MFEDIT: `mf_food_edits@http://${process.env.MF_FOOD_EDIT_URL}/remoteEntry.js`,
-                MFEXPERT: `mf_expert_profile@http://${process.env.MF_EXPERTS_URL}/remoteEntry.js`,
-                MFNOTIF: `mf_notification@http://${process.env.MF_NOTIFICATIONS_URL}/remoteEntry.js`,
+                MFACC: `mf_accounts@${process.env.MF_ACCOUNTS_URL}/remoteEntry.js`, // Nombre de la aplicación hijo + @http://ip-MF-Hijo:puerto-MF-Hijo/RemoteEntry.js
+                MFFOOD: `mf_food_profile@${process.env.MF_FOOD_PROFILE_URL}/remoteEntry.js`,
+                MFUSER: `mf_user_profile@${process.env.MF_USER_PROFILE_URL}/remoteEntry.js`,
+                MFEDIT: `mf_food_edits@${process.env.MF_FOOD_EDIT_URL}/remoteEntry.js`,
+                MFEXPERT: `mf_expert_profile@${process.env.MF_EXPERTS_URL}/remoteEntry.js`,
+                MFSTORE: `mf_store_profile@${process.env.MF_STORES_URL}/remoteEntry.js`,
+                MFNOTIF: `mf_notification@${process.env.MF_NOTIFICATIONS_URL}/remoteEntry.js`,
               },
               shared: {
                 ...dependencies, // other dependencies
@@ -59,6 +60,11 @@ dotenv.config()
             port: process.env.REACT_APP_PORT, // Puerto donde se levanta la app
             host: "0.0.0.0",
             historyApiFallback: true, // Necesario para que funcione React Router
+            allowedHosts: 'all',
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              'Cache-Control': 'no-cache, no-store, must-revalidate',
+            }
           },
           module: {
             rules: [

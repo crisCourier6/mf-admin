@@ -10,27 +10,37 @@ import FoodEditListView from "./views/food-edit/FoodEditListView";
 import RoleListView from "./views/accounts/RoleListView";
 import ArticleListView from "./views/expert-profile/ArticleListView";
 import NotificationManagerView from "./views/notification/NotificationManagerView";
+import PublicRoute from "./components/PublicRoute";
+import ProtectedRoute from "./components/ProtectedRoute";
+import FoodProfileView from "./views/food-profile/FoodProfileView";
+import InvalidRoute from "./components/InvalidRoute";
 
 function App() {
   return (
     <div className="App">
       <Router basename="/admin">
           <Routes>
-              <Route path="/" element={<LoginView />}/>
+              <Route path="/" element={<PublicRoute><LoginView /></PublicRoute>}/>
               <Route path="login">
-                <Route index={true} element={<LoginView />}/>
+                <Route index={true} element={<PublicRoute><LoginView/></PublicRoute>}/>
               </Route>
-              <Route path="home" element={<HomeView/>}></Route>
-              <Route path="users" element={<UserListView/>}></Route>
-              <Route path="food" element={<FoodListLocalView/>}></Route>
-              <Route path="food-edit" element={<FoodEditListView/>}></Route>
-              <Route path="roles" element={<RoleListView/>}></Route>
-              <Route path="notifications" element={<NotificationManagerView/>}></Route>
+              <Route path="home" element={<ProtectedRoute><HomeView/></ProtectedRoute>}></Route>
+              <Route path="users">
+                <Route index={true} element={<ProtectedRoute><UserListView /></ProtectedRoute>}/>
+                <Route path=":id" element={<ProtectedRoute><UserProfileView/></ProtectedRoute>}/>
+              </Route>
+              <Route path="food">
+                <Route index={true} element={<ProtectedRoute><FoodListLocalView/></ProtectedRoute>}></Route>
+                <Route path=":id" element={<ProtectedRoute><FoodProfileView/></ProtectedRoute>}></Route>
+              </Route>
+              <Route path="food-edit" element={<ProtectedRoute><FoodEditListView/></ProtectedRoute>}></Route>
+              <Route path="roles" element={<ProtectedRoute><RoleListView/></ProtectedRoute>}></Route>
+              <Route path="notifications" element={<ProtectedRoute><NotificationManagerView/></ProtectedRoute>}></Route>
               <Route path="account">
-                <Route path=":id" element={<UserProfileView />}/>
+                <Route path=":id" element={<ProtectedRoute><UserProfileView /></ProtectedRoute>}/>
               </Route>
-              <Route path="articles" element={<ArticleListView/>}></Route>
-             
+              <Route path="articles" element={<ProtectedRoute><ArticleListView/></ProtectedRoute>}></Route>
+              <Route path="*" element={<InvalidRoute />} />
           </Routes>
         
       </Router>

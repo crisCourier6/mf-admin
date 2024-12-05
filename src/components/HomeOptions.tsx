@@ -48,7 +48,7 @@ export const HomeOptions:React.FC= () => {
       {name: "Gestión de roles y permisos", allowedRoles: ["Admin", "Tech"], function: handleRoleEdit, icon: <RoleIcon width='100%' height= 'auto'/>},
       // {name: "Artículos de salud", allowedRoles: ["Admin", "Tech", "Expert"], function: handleArticleEdit, icon: <ArticlesIcon width='100%' height= 'auto'/>}
     ]
-    const userRole = window.localStorage.role
+    const userRole = window.sessionStorage.role || window.localStorage.role
     const filteredOptions = options.filter(option => 
       option.allowedRoles.includes(userRole)
     )
@@ -59,7 +59,7 @@ export const HomeOptions:React.FC= () => {
                 flexDirection="row" 
                 justifyContent="space-around"
                 alignItems="stretch"
-                sx={{width: "100vw", maxWidth:"800px", gap:"5px", py: 7,}}
+                sx={{width: "100vw", maxWidth:"800px", gap:"5px", flexWrap: "wrap", pb: 7}}
             >
             {optionsApp.map((option) => (
               <Button key={option.name} variant='dashed' onClick={option.function} 
@@ -67,7 +67,7 @@ export const HomeOptions:React.FC= () => {
                   flexDirection: "column", 
                   alignItems: "center", 
                   justifyContent: "stretch",
-                  width: "25%", 
+                  width: "30%", 
                   maxWidth: "200px",
                   fontWeight: "bold"
               }}
@@ -76,7 +76,7 @@ export const HomeOptions:React.FC= () => {
                   {option.icon}
                 </Box>
                 
-                <Typography color="primary.dark" fontFamily="Montserrat">
+                <Typography sx={{fontSize:{xs: 12, sm:18}, fontStyle: "bold"}}>
                     {option.name}
                 </Typography>
             </Button>

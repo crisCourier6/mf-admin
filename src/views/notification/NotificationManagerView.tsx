@@ -8,16 +8,18 @@ import NotAllowed from '../../components/NotAllowed';
 
 export const NotificationManagerView = () => {
   const [isAppBarVisible, setIsAppBarVisible] = useState(true);
+  const id = window.sessionStorage.getItem("id") || window.localStorage.getItem("id")
+  const token = window.sessionStorage.getItem("token") || window.localStorage.getItem("token")
   const allowedRoles = ["Admin", "Tech"]
   const [allDone, setAllDone] = useState(false)
   const [isAllowed, setIsAllowed] = useState(false)
   const checkRoleURL = "/users"
 
   useEffect(()=>{
-    api.get(`${checkRoleURL}/${window.localStorage.id}/roles`, 
+    api.get(`${checkRoleURL}/${id}/roles`, 
       {
         withCredentials: true,
-        headers: { Authorization: "Bearer " + window.localStorage.token },
+        headers: { Authorization: "Bearer " + token },
       }
     )
     .then(res => {

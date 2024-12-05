@@ -100,19 +100,20 @@ const TopBar: React.FC<{ onVisibilityChange: (visible: boolean) => void }> = ({ 
     };
 
     const handleProfile = () => {
-      navigate("/users" + window.localStorage.id)
+      navigate("/users/" + window.sessionStorage.id || window.localStorage.id)
     }
 
     const handleSettings = () => {
-      navigate("/users" + window.localStorage.id + "/settings")
+      navigate("/users/" + window.sessionStorage.id || window.localStorage.id + "/settings")
     }
 
     const handleNotif = () => {
-      navigate("/users/" + window.localStorage.id + "/notif")
+      navigate("/users/" + window.sessionStorage.id || window.localStorage.id + "/notif")
     }
 
     const handleLogout = () => {
         window.localStorage.clear()
+        window.sessionStorage.clear()
         navigate("/login")
     }
 
@@ -165,7 +166,7 @@ const TopBar: React.FC<{ onVisibilityChange: (visible: boolean) => void }> = ({ 
         {name: "Gestión de roles y permisos", allowedRoles: ["Admin", "Tech"], function: handleRoleEdit, icon: <RoleIcon width='32px' height= '32px'/>},
         {name: "Artículos de salud", allowedRoles: ["Admin", "Tech", "Expert"], function: handleArticleEdit, icon: <ArticlesIcon width='32px' height= '32px'/>}
       ]
-      const userRole = window.localStorage.role
+      const userRole = window.sessionStorage.role || window.localStorage.role
       const filteredOptions = options.filter(option => 
         option.allowedRoles.includes(userRole)
       )
@@ -198,7 +199,7 @@ const TopBar: React.FC<{ onVisibilityChange: (visible: boolean) => void }> = ({ 
           
         }}>
           <Typography variant="h5" color="primary.contrastText">
-            {window.localStorage.name}
+            {window.sessionStorage.name || window.localStorage.name}
           </Typography>
           
         </Paper>

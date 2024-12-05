@@ -38,7 +38,9 @@ export const NotAllowed = () => {
                 Usuario sin permiso para acceder a este contenido
             </Typography>
             <Button onClick={handleGoHome}>
-                Volver al inicio
+                <Typography variant="subtitle1" sx={{textDecoration: "underline"}}>
+                    Volver al inicio
+                </Typography>
             </Button>
         </Box>
       

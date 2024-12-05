@@ -14,7 +14,7 @@ export const UserProfileView = () => {
           justifyContent="flex-start" 
           alignItems="center">
       <TopBar onVisibilityChange={handleAppBarVisibilityChange}></TopBar> 
-      <UserAccount isAppBarVisible={isAppBarVisible}/> 
+      <UserAccount isAppBarVisible={isAppBarVisible} onReady={()=>{}}/> 
       
     </Grid>
   )

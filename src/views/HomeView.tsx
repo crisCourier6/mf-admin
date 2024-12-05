@@ -5,7 +5,7 @@ import { HomeOptions } from '../components/HomeOptions';
 
 export const HomeView = () => {
   const [isAppBarVisible, setIsAppBarVisible] = useState(true);
-
+  const name = window.sessionStorage.getItem("name") || window.localStorage.getItem("name")
   const handleAppBarVisibilityChange = (visible: boolean) => {
       setIsAppBarVisible(visible);
   };
@@ -19,13 +19,13 @@ export const HomeView = () => {
     const hour = now.getHours()
 
     if (hour >= 5 && hour<12){
-      return "Buenos días " + window.localStorage.name
+      return "Buenos días " + name
     }
     else if (hour >= 12 && hour<17){
-      return "Buenas tardes " + window.localStorage.name
+      return "Buenas tardes " + name
     }
     else {
-      return "Buenas noches " + window.localStorage.name
+      return "Buenas noches " + name
     }
   }
   return (
