@@ -30,7 +30,7 @@ dotenv.config()
                 MFACC: `mf_accounts@${process.env.MF_ACCOUNTS_URL}/remoteEntry.js`, // Nombre de la aplicación hijo + @http://ip-MF-Hijo:puerto-MF-Hijo/RemoteEntry.js
                 MFFOOD: `mf_food_profile@${process.env.MF_FOOD_PROFILE_URL}/remoteEntry.js`,
                 MFUSER: `mf_user_profile@${process.env.MF_USER_PROFILE_URL}/remoteEntry.js`,
-                MFEDIT: `mf_food_edits@${process.env.MF_FOOD_EDIT_URL}/remoteEntry.js`,
+                MFEDIT: `mf_food_edits@${process.env.MF_FOOD_EDITS_URL}/remoteEntry.js`,
                 MFEXPERT: `mf_expert_profile@${process.env.MF_EXPERTS_URL}/remoteEntry.js`,
                 MFSTORE: `mf_store_profile@${process.env.MF_STORES_URL}/remoteEntry.js`,
                 MFNOTIF: `mf_notification@${process.env.MF_NOTIFICATIONS_URL}/remoteEntry.js`,
@@ -52,7 +52,7 @@ dotenv.config()
             }),
           ],
           output: {
-            publicPath: "http://" + process.env.REACT_APP_BASE_URL + ":" + process.env.REACT_APP_PORT + "/", // Necesario para rutas anidadas (/path/nested-path)
+            publicPath: process.env.REACT_APP_PUBLIC_PATH || '/', // Necesario para rutas anidadas (/path/nested-path)
           },
           entry: "./src/entry",
           mode: "development",
