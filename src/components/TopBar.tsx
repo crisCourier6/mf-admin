@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Logo from "../../public/EFbeta.png"
 import { 
   Box, List, ListItem, ListItemButton, 
@@ -13,12 +13,12 @@ import NotificationsNoneRoundedIcon from '@mui/icons-material/NotificationsNoneR
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 import FoodListIcon from "../svgs/FoodListIcon";
-import { useTheme } from "@mui/material/styles";
+//import { useTheme } from "@mui/material/styles";
 import RoleIcon from "../svgs/RoleIcon";
 import UsersIcon from "../svgs/Users";
 import NotificationManagerIcon from "../svgs/NotificationManagerIcon";
 import SubmissionsIcon from "../svgs/SubmissionsIcon";
-import ArticlesIcon from "../svgs/ArticlesIcon";
+//import ArticlesIcon from "../svgs/ArticlesIcon";
 
 const HideOnScroll: React.FC<{ onVisibilityChange: (visible: boolean) => 
   void, children: React.ReactElement }> = ({ onVisibilityChange, children }) => {
@@ -164,7 +164,7 @@ const TopBar: React.FC<{ onVisibilityChange: (visible: boolean) => void }> = ({ 
         {name: "Lista local de alimentos", allowedRoles: ["Admin", "Tech", "Expert", "Store"], function: handleFoodLocal, icon: <FoodListIcon width='32px' height= '32px'/>},
         {name: "Aportes de usuarios", allowedRoles: ["Admin", "Tech", "Expert"], function: handleFoodEdit, icon: <SubmissionsIcon width='32px' height= '32px'/>},
         {name: "Gestión de roles y permisos", allowedRoles: ["Admin", "Tech"], function: handleRoleEdit, icon: <RoleIcon width='32px' height= '32px'/>},
-        {name: "Artículos de salud", allowedRoles: ["Admin", "Tech", "Expert"], function: handleArticleEdit, icon: <ArticlesIcon width='32px' height= '32px'/>}
+        //{name: "Artículos de salud", allowedRoles: ["Admin", "Tech", "Expert"], function: handleArticleEdit, icon: <ArticlesIcon width='32px' height= '32px'/>}
       ]
       const userRole = window.sessionStorage.role || window.localStorage.role
       const filteredOptions = options.filter(option => 
@@ -175,8 +175,6 @@ const TopBar: React.FC<{ onVisibilityChange: (visible: boolean) => void }> = ({ 
 
     const optionsUser = [
       {name: "Mi perfil", function: handleProfile, icon: <AccountCircleRoundedIcon/>},
-      {name: "Ajustes", function: handleSettings, icon: <SettingsRoundedIcon/>},
-      {name: "Notificaciones", function: handleNotif, icon: <NotificationsNoneRoundedIcon/>},
       {name: "Cerrar sesión", function: handleLogout, icon: <LogoutRoundedIcon/>},
     ]
 
