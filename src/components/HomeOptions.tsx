@@ -76,7 +76,7 @@ export const HomeOptions:React.FC= () => {
                   {option.icon}
                 </Box>
                 
-                <Typography sx={{fontSize:{xs: 12, sm:18}, fontStyle: "bold"}}>
+                <Typography variant='h6'>
                     {option.name}
                 </Typography>
             </Button>
