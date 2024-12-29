@@ -3,11 +3,11 @@ import { CircularProgress } from "@mui/material";
 // @ts-ignore
 const MFUserList = lazy(() => import("MFACC/UserList"))
 
-const UserList: React.FC<{ isAppBarVisible: boolean }> = ({ isAppBarVisible }) => {
+const UserList: React.FC<{ isAppBarVisible: boolean, userRoles: string[] }> = ({ isAppBarVisible, userRoles }) => {
     return (
         <div>
             <Suspense fallback={<CircularProgress/>}>
-                <MFUserList isAppBarVisible={isAppBarVisible}/>
+                <MFUserList isAppBarVisible={isAppBarVisible} userRoles={userRoles}/>
             </Suspense>
         </div>
     )

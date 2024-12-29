@@ -6,7 +6,6 @@ import HomeView from "./views/HomeView";
 import UserListView from "./views/accounts/UserListView";
 import UserProfileView from "./views/accounts/UserProfileView";
 import FoodListLocalView from "./views/food-profile/FoodListLocalView";
-import FoodEditListView from "./views/food-edit/FoodEditListView";
 import RoleListView from "./views/accounts/RoleListView";
 import ArticleListView from "./views/expert-profile/ArticleListView";
 import NotificationManagerView from "./views/notification/NotificationManagerView";
@@ -38,7 +37,6 @@ function App() {
                 <Route path=":id" element={<ProtectedRoute><FoodProfileView/></ProtectedRoute>}></Route>
                 <Route path=":id/edit" element={<ProtectedRoute><FoodEditView/></ProtectedRoute>}></Route>
               </Route>
-              <Route path="food-edit" element={<ProtectedRoute><FoodEditListView/></ProtectedRoute>}></Route>
               <Route path="roles" element={<ProtectedRoute><RoleListView/></ProtectedRoute>}></Route>
               <Route path="notifications" element={<ProtectedRoute><NotificationManagerView/></ProtectedRoute>}></Route>
               <Route path="account">
