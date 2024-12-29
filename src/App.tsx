@@ -14,6 +14,9 @@ import PublicRoute from "./components/PublicRoute";
 import ProtectedRoute from "./components/ProtectedRoute";
 import FoodProfileView from "./views/food-profile/FoodProfileView";
 import InvalidRoute from "./components/InvalidRoute";
+import UserNotificationsView from "./views/notification/UserNotificationsView";
+import FoodEditView from "./views/food-edit/FoodEditView";
+import ScannerView from "./views/ScannerView";
 
 function App() {
   return (
@@ -28,10 +31,12 @@ function App() {
               <Route path="users">
                 <Route index={true} element={<ProtectedRoute><UserListView /></ProtectedRoute>}/>
                 <Route path=":id" element={<ProtectedRoute><UserProfileView/></ProtectedRoute>}/>
+                <Route path=":id/notifications" element={<ProtectedRoute><UserNotificationsView/></ProtectedRoute>}></Route>
               </Route>
               <Route path="food">
                 <Route index={true} element={<ProtectedRoute><FoodListLocalView/></ProtectedRoute>}></Route>
                 <Route path=":id" element={<ProtectedRoute><FoodProfileView/></ProtectedRoute>}></Route>
+                <Route path=":id/edit" element={<ProtectedRoute><FoodEditView/></ProtectedRoute>}></Route>
               </Route>
               <Route path="food-edit" element={<ProtectedRoute><FoodEditListView/></ProtectedRoute>}></Route>
               <Route path="roles" element={<ProtectedRoute><RoleListView/></ProtectedRoute>}></Route>
@@ -40,6 +45,9 @@ function App() {
                 <Route path=":id" element={<ProtectedRoute><UserProfileView /></ProtectedRoute>}/>
               </Route>
               <Route path="articles" element={<ProtectedRoute><ArticleListView/></ProtectedRoute>}></Route>
+              <Route path="scan">
+                <Route index={true} element={<ScannerView/>}></Route>
+              </Route>
               <Route path="*" element={<InvalidRoute />} />
           </Routes>
         

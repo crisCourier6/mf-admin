@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import RoleIcon from '../svgs/RoleIcon';
 import FoodListIcon from '../svgs/FoodListIcon';
 import NotificationManagerIcon from '../svgs/NotificationManagerIcon';
-import SubmissionsIcon from '../svgs/SubmissionsIcon';
-import UsersIcon from '../svgs/Users';
+import UserPendingCount from '../microfrontends/accounts/UserPendingCount';
+import FoodEditPendingCount from '../microfrontends/food-edits/FoodEditPendingCount';
 
 export const HomeOptions:React.FC= () => {
   const navigate = useNavigate()
@@ -16,10 +16,6 @@ export const HomeOptions:React.FC= () => {
   const handleFoodLocal = () => {
     navigate("/food")
   }
-  const handleFoodEdit = () => {
-    navigate("/food-edit")
-  }
-
   const handleRoleEdit = () => {
     navigate("/roles")
   }
@@ -41,11 +37,10 @@ export const HomeOptions:React.FC= () => {
 
   useEffect(()=>{
     const options = [
-      {name: "Usuarios", allowedRoles: ["Admin", "Tech"], function: handleUsers, icon: <UsersIcon width='100%' height= 'auto'/>},
+      {name: "Usuarios", allowedRoles: ["Admin", "Tech"], function: handleUsers, icon: <UserPendingCount/>},
       {name: "Notificaciones", allowedRoles: ["Admin", "Tech"], function: handleNotificationEdit, icon: <NotificationManagerIcon width='100%' height= 'auto'/>},
-      {name: "Lista local de alimentos", allowedRoles: ["Admin", "Tech", "Expert", "Store"], function: handleFoodLocal, icon: <FoodListIcon width='100%' height= 'auto'/>},
-      {name: "Aportes de usuarios", allowedRoles: ["Admin", "Tech", "Expert"], function: handleFoodEdit, icon: <SubmissionsIcon width='100%' height= 'auto'/>},
-      {name: "Gestión de roles y permisos", allowedRoles: ["Admin", "Tech"], function: handleRoleEdit, icon: <RoleIcon width='100%' height= 'auto'/>},
+      {name: "Alimentos", allowedRoles: ["Admin", "Tech", "Expert", "Store"], function: handleFoodLocal, icon: <FoodEditPendingCount/>},
+      // {name: "Gestión de roles y permisos", allowedRoles: ["Admin", "Tech"], function: handleRoleEdit, icon: <RoleIcon width='100%' height= 'auto'/>},
       // {name: "Artículos de salud", allowedRoles: ["Admin", "Tech", "Expert"], function: handleArticleEdit, icon: <ArticlesIcon width='100%' height= 'auto'/>}
     ]
     const userRole = window.sessionStorage.role || window.localStorage.role

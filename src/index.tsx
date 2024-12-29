@@ -65,12 +65,12 @@ const baseTheme = createTheme({
     secondary: {
       light: '#dff5c4',
       main: "#b0e971",
-      dark: '#79d673',
+      dark: '#006e00',
       contrastText: '#22323f',
     },
     warning: {
       main: '#ff9800', // Main warning color
-      light: '#ffc947', // Light variant of the warning color
+      light: '#ffce74', // Light variant of the warning color
       dark: '#c66900', // Dark variant of the warning color
       contrastText: '#ffffff', // Contrast color for text on warning color
     },
