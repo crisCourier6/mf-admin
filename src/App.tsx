@@ -16,6 +16,7 @@ import InvalidRoute from "./components/InvalidRoute";
 import UserNotificationsView from "./views/notification/UserNotificationsView";
 import FoodEditView from "./views/food-edit/FoodEditView";
 import ScannerView from "./views/ScannerView";
+import HelpView from "./views/HelpView";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
                 <Route path=":id" element={<ProtectedRoute><UserProfileView /></ProtectedRoute>}/>
               </Route>
               <Route path="articles" element={<ProtectedRoute><ArticleListView/></ProtectedRoute>}></Route>
+              <Route path="help" element={<ProtectedRoute><HelpView/></ProtectedRoute>}></Route>
               <Route path="scan">
                 <Route index={true} element={<ScannerView/>}></Route>
               </Route>

@@ -1,29 +1,23 @@
 import React, { useCallback } from "react";
 import { useNavigate } from 'react-router-dom';
-import Logo from "../../public/EFbeta.png"
 import EFLogo from "../svgs/EFLogo";
 import { 
   Box, List, ListItem, ListItemButton, 
   ListItemIcon, Drawer, AppBar, 
-  Toolbar, IconButton, Typography, 
+  Toolbar, Typography, 
   Paper, Slide,
   Button} from "@mui/material";
 import { useState, useEffect } from "react";
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
-import NotificationsNoneRoundedIcon from '@mui/icons-material/NotificationsNoneRounded';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
-import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 import FoodListIcon from "../svgs/FoodListIcon";
 //import { useTheme } from "@mui/material/styles";
-import RoleIcon from "../svgs/RoleIcon";
-import UsersIcon from "../svgs/Users";
+import HelpIcon from '@mui/icons-material/Help';
 import NotificationManagerIcon from "../svgs/NotificationManagerIcon";
-import SubmissionsIcon from "../svgs/SubmissionsIcon";
 import UserNotificationCount from "../microfrontends/notification/UserNotificationCount";
 import UserPendingCount from "../microfrontends/accounts/UserPendingCount";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import FoodEditPendingCount from "../microfrontends/food-edits/FoodEditPendingCount";
 //import ArticlesIcon from "../svgs/ArticlesIcon";
 
@@ -111,10 +105,6 @@ const TopBar: React.FC<{ onVisibilityChange: (visible: boolean) => void }> = ({ 
       navigate("/users/" + currentUserId)
     }
 
-    const handleSettings = () => {
-      navigate("/users/" + currentUserId + "/settings")
-    }
-
     const handleNotifications = () => {
       navigate("/users/" + currentUserId + "/notifications")
     }
@@ -129,22 +119,15 @@ const TopBar: React.FC<{ onVisibilityChange: (visible: boolean) => void }> = ({ 
       navigate("/home")
     }
 
-    const handleBack = () => {
-      navigate(-1); // Navigate to the previous page
-    };
-
     const handleUsers = () => {
       navigate("/users")
     }
     const handleFoodLocal = () => {
       navigate("/food")
     }
-    const handleFoodEdit = () => {
-      navigate("/food-edit")
-    }
 
-    const handleRoleEdit = () => {
-      navigate("/roles")
+    const handleHelp = () => {
+      navigate("/help")
     }
 
     const handleNotificationEdit = () => {
@@ -177,6 +160,7 @@ const TopBar: React.FC<{ onVisibilityChange: (visible: boolean) => void }> = ({ 
       {name: "Ir al inicio", allowedRoles: ["Core"], function: handleHome, icon: <HomeIcon width={28} height= {28}/>},
       {name: "Mi perfil", function: handleProfile, icon: <AccountCircleRoundedIcon/>},
       {name: "Notificaciones", function: handleNotifications, icon: <UserNotificationCount/>},
+      {name: "Ayuda", function: handleHelp, icon: <HelpIcon width={28} height= {28}/>},
       {name: "Cerrar sesión", function: handleLogout, icon: <LogoutRoundedIcon/>},
     ]
 
