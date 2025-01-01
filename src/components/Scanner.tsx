@@ -123,7 +123,7 @@ export const Scanner: React.FC<{ isAppBarVisible: boolean }> = ({ isAppBarVisibl
                 boxSizing: "border-box"
             }}
             > 
-                <video ref={ref}/>
+                <video muted ref={ref}/>
             </Box>
         </Grid>
   );

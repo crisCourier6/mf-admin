@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Box, Typography, Grid} from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import RoleIcon from '../svgs/RoleIcon';
 import FoodListIcon from '../svgs/FoodListIcon';
 import NotificationManagerIcon from '../svgs/NotificationManagerIcon';
 import UserPendingCount from '../microfrontends/accounts/UserPendingCount';

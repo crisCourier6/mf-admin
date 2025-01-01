@@ -2,22 +2,10 @@ import React, { useState } from 'react';
 import { Box, Typography, Grid, CircularProgress, Accordion, AccordionSummary, AccordionDetails} from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ScannerIcon from '../svgs/ScannerIcon';
-import SearchIcon from '../svgs/SearchIcon';
-import FoodPrefsIcon from '../svgs/FoodPrefsIcon';
-import ExpertIcon from '../svgs/ExpertIcon';
-import StoreIcon from '../svgs/StoreIcon';
 // import FoodListIcon from '../svgs/FoodListIcon';
 import AccountIcon from '../svgs/AccountIcon';
 import NotificationManagerIcon from '../svgs/NotificationManagerIcon';
 import FoodListIcon from '../svgs/FoodListIcon';
-
-type Option = {
-  name:string,
-  allowedRoles: string[]
-  function: () => void
-  icon: any
-}
 
 export const Help:React.FC<{isAppBarVisible:boolean}>= ({isAppBarVisible}) => {
   const navigate = useNavigate()
