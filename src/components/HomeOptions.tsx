@@ -15,13 +15,6 @@ export const HomeOptions:React.FC= () => {
   const handleFoodLocal = () => {
     navigate("/food")
   }
-  const handleRoleEdit = () => {
-    navigate("/roles")
-  }
-
-  const handleArticleEdit = () => {
-    navigate("/articles")
-  }
 
   const handleNotificationEdit = () => {
     navigate("/notifications")

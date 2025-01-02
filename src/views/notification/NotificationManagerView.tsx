@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Grid, CircularProgress } from '@mui/material';
-import { useEffect, useState } from 'react';
 import NotificationManager from '../../microfrontends/notification/NotificationManager';
 import TopBar from '../../components/TopBar';
 import api from '../../api';
@@ -8,8 +7,8 @@ import NotAllowed from '../../components/NotAllowed';
 
 export const NotificationManagerView = () => {
   const [isAppBarVisible, setIsAppBarVisible] = useState(true);
-  const id = window.sessionStorage.getItem("id") || window.localStorage.getItem("id")
-  const token = window.sessionStorage.getItem("token") || window.localStorage.getItem("token")
+  const id = window.sessionStorage.getItem("id") ?? window.localStorage.getItem("id")
+  const token = window.sessionStorage.getItem("token") ?? window.localStorage.getItem("token")
   const allowedRoles = ["Admin", "Tech"]
   const [allDone, setAllDone] = useState(false)
   const [isAllowed, setIsAllowed] = useState(false)

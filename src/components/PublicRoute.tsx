@@ -8,7 +8,7 @@ const PublicRoute: React.FC<{ children: JSX.Element }> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const isLoggedIn = async () => {
-    const token = localStorage.getItem("token") || sessionStorage.getItem("token");
+    const token = localStorage.getItem("token") ?? sessionStorage.getItem("token");
     if (!token) return false;
 
     try {

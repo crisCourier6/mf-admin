@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import EFLogo from "../svgs/EFLogo";
 import { 
@@ -7,26 +7,22 @@ import {
   Toolbar, Typography, 
   Paper, Slide,
   Button} from "@mui/material";
-import { useState, useEffect } from "react";
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import FoodListIcon from "../svgs/FoodListIcon";
-//import { useTheme } from "@mui/material/styles";
 import HelpIcon from '@mui/icons-material/Help';
 import NotificationManagerIcon from "../svgs/NotificationManagerIcon";
 import UserNotificationCount from "../microfrontends/notification/UserNotificationCount";
 import UserPendingCount from "../microfrontends/accounts/UserPendingCount";
 import FoodEditPendingCount from "../microfrontends/food-edits/FoodEditPendingCount";
-//import ArticlesIcon from "../svgs/ArticlesIcon";
 
 const HideOnScroll: React.FC<{ onVisibilityChange: (visible: boolean) => 
   void, children: React.ReactElement }> = ({ onVisibilityChange, children }) => {
     const [lastScrollSwitch, setLastScrollSwitch] = useState(0);
     const [lastScroll, setLastScroll] = useState(0);
     const [visible, setVisible] = useState(true);
-    const name = window.sessionStorage.getItem("name") || window.localStorage.getItem("name") || ""
     const hideThreshold = 100; // Amount to scroll down to hide the AppBar
     const showThreshold = 100; // Amount to scroll up to show the AppBar
 
@@ -91,8 +87,8 @@ const TopBar: React.FC<{ onVisibilityChange: (visible: boolean) => void }> = ({ 
     const navigate = useNavigate()
     const [openRight, setOpenRight] = React.useState(false);
     const [openLeft, setOpenLeft] = React.useState(false);
-    const currentUserId = window.sessionStorage.getItem("id") || window.localStorage.getItem("id")
-    const currentUserName = window.sessionStorage.getItem("name") || window.localStorage.getItem("name")
+    const currentUserId = window.sessionStorage.getItem("id") ?? window.localStorage.getItem("id")
+    const currentUserName = window.sessionStorage.getItem("name") ?? window.localStorage.getItem("name")
     const toggleDrawerRight = (newOpen: boolean) => () => {
       setOpenRight(newOpen);
     };
@@ -146,8 +142,6 @@ const TopBar: React.FC<{ onVisibilityChange: (visible: boolean) => void }> = ({ 
         {name: "Usuarios", allowedRoles: ["Admin", "Tech"], function: handleUsers, icon: <UserPendingCount width='32px' height= '32px'/>},
         {name: "Notificaciones", allowedRoles: ["Admin", "Tech"], function: handleNotificationEdit, icon: <NotificationManagerIcon width='32px' height= '32px'/>},
         {name: "Alimentos", allowedRoles: ["Admin", "Tech", "Expert", "Store"], function: handleFoodLocal, icon: <FoodEditPendingCount width='32px' height= '32px'/>},
-        // {name: "Gestión de roles y permisos", allowedRoles: ["Admin", "Tech"], function: handleRoleEdit, icon: <RoleIcon width='32px' height= '32px'/>},
-        //{name: "Artículos de salud", allowedRoles: ["Admin", "Tech", "Expert"], function: handleArticleEdit, icon: <ArticlesIcon width='32px' height= '32px'/>}
       ]
       const userRole = window.sessionStorage.role || window.localStorage.role
       const filteredOptions = options.filter(option => 
@@ -248,7 +242,6 @@ const TopBar: React.FC<{ onVisibilityChange: (visible: boolean) => void }> = ({ 
            sx={{
           display: "flex",
           flexDirection: "row",
-          // flexWrap: "nowrap",
           alignItems: "center",
            bgcolor: "secondary.main",
            color: "primary.dark",
@@ -258,22 +251,6 @@ const TopBar: React.FC<{ onVisibilityChange: (visible: boolean) => void }> = ({ 
         >
           <Toolbar sx={{display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", width:"100%", height:"50px" }}>
             <Box sx={{display:"flex", justifyContent: "flex-start", flex:1}}>
-              {/* <Button
-                onClick={handleBack}
-                size="small"
-                color="inherit"
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  textTransform: "none",
-                  border: "2px"
-                }}
-              >
-                <ArrowBackIcon fontSize="medium" />
-                <Typography variant="subtitle2">Atrás</Typography>
-              </Button> */}
               <Button
                 onClick={toggleDrawerLeft(true)}
                 size="small"
@@ -343,7 +320,6 @@ const TopBar: React.FC<{ onVisibilityChange: (visible: boolean) => void }> = ({ 
             {DrawerListApp}
           </Drawer>
         </AppBar>
-      {/* </Box> */}
       
       </HideOnScroll>
     )

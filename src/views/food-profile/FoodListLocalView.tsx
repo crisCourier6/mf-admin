@@ -1,6 +1,5 @@
 import { Box, FormControlLabel, Grid, Radio, RadioGroup, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-
 import TopBar from '../../components/TopBar';
 import FoodListLocal from '../../microfrontends/food-profile/FoodListLocal';
 import FoodEditList from '../../microfrontends/food-edits/FoodEditList';
@@ -10,7 +9,7 @@ import NavigateBack from '../../components/NavigateBack';
 export const FoodListLocalView = () => {
   const [isAppBarVisible, setIsAppBarVisible] = useState(true);
   const [showSubmissions, setShowSubmissions] = useState(false)
-  const token = window.sessionStorage.getItem("token") || window.localStorage.getItem("token")
+  const token = window.sessionStorage.getItem("token") ?? window.localStorage.getItem("token")
   const [pendingCount, setPendingCount] = useState<number>(0);
   const pendingURL = "/submissions?pendingcount=true"
   const handleAppBarVisibilityChange = (visible: boolean) => {

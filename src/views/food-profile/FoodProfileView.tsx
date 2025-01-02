@@ -9,8 +9,8 @@ import AddFoodToStore from '../../microfrontends/store-profile/AddFoodToStore';
 import FoodStoreList from '../../microfrontends/store-profile/FoodStoreList';
 
 export const FoodProfileView = () => {
-  const id = window.sessionStorage.getItem("id") || window.localStorage.getItem("id")
-  const token = window.sessionStorage.getItem("token") || window.localStorage.getItem("token")
+  const id = window.sessionStorage.getItem("id") ?? window.localStorage.getItem("id")
+  const token = window.sessionStorage.getItem("token") ?? window.localStorage.getItem("token")
   const [isAppBarVisible, setIsAppBarVisible] = useState(true);
   const handleAppBarVisibilityChange = (visible: boolean) => {
       setIsAppBarVisible(visible);

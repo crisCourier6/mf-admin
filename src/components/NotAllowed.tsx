@@ -16,7 +16,7 @@ export const NotAllowed = () => {
     navigate("/home")
   }
 
-  return ( <>
+  return (
     <Grid container direction="column" 
     justifyContent="flex-start" 
     alignItems="center">
@@ -45,7 +45,6 @@ export const NotAllowed = () => {
         </Box>
       
     </Grid>
-  </>
   )
 }
 

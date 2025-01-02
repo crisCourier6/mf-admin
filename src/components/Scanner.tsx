@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from "react"
+import React, { useState } from 'react';
 import { useZxing } from "react-zxing"
 import { Box, Button, Grid, Paper, TextField, Typography } from "@mui/material"
 import { useNavigate } from "react-router-dom"

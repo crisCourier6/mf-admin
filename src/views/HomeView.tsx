@@ -5,7 +5,7 @@ import { HomeOptions } from '../components/HomeOptions';
 
 export const HomeView = () => {
   const [isAppBarVisible, setIsAppBarVisible] = useState(true);
-  const name = window.sessionStorage.getItem("name") || window.localStorage.getItem("name")
+  const name = window.sessionStorage.getItem("name") ?? window.localStorage.getItem("name")
   const handleAppBarVisibilityChange = (visible: boolean) => {
       setIsAppBarVisible(visible);
   };

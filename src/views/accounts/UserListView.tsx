@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import { CircularProgress, Grid } from '@mui/material';
-import { useState } from 'react';
 import UserList from '../../microfrontends/accounts/UserList';
 import TopBar from '../../components/TopBar';
 import api from '../../api';
 import NotAllowed from '../../components/NotAllowed';
 
 export const UserListView = () => {
-  const id = window.sessionStorage.getItem("id") || window.localStorage.getItem("id")
-  const token = window.sessionStorage.getItem("token") || window.localStorage.getItem("token")
+  const id = window.sessionStorage.getItem("id") ?? window.localStorage.getItem("id")
+  const token = window.sessionStorage.getItem("token") ?? window.localStorage.getItem("token")
   const [isAppBarVisible, setIsAppBarVisible] = useState(true);
   const allowedRoles = ["Admin", "Tech"]
   const [userRoles, setUserRoles] = useState<string[]>([])

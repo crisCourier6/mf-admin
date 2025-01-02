@@ -8,11 +8,9 @@ import NotificationManagerIcon from '../svgs/NotificationManagerIcon';
 import FoodListIcon from '../svgs/FoodListIcon';
 
 export const Help:React.FC<{isAppBarVisible:boolean}>= ({isAppBarVisible}) => {
-  const navigate = useNavigate()
-  const [allDone, setAllDone] = useState(true)
-  const currentUserId = window.sessionStorage.getItem("id") || window.localStorage.getItem("id")
-  const currentStoreId = window.sessionStorage.getItem("s_id") || window.localStorage.getItem("s_id")
-  const currentExpertId = window.sessionStorage.getItem("e_id") || window.localStorage.getItem("e_id")
+  const [allDone] = useState(true)
+  const currentStoreId = window.sessionStorage.getItem("s_id") ?? window.localStorage.getItem("s_id")
+  const currentExpertId = window.sessionStorage.getItem("e_id") ?? window.localStorage.getItem("e_id")
 
   
     return (allDone
